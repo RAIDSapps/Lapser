@@ -1,6 +1,8 @@
 # Lapser
 
-##Setup
+### Note: Lapser does not currently work on Windows
+
+## Setup
 
 Requirements:
 
