@@ -11,6 +11,37 @@ class mainWindow(wx.Frame):
 
     def changeInputFiles(self, event):
         print('test')
+        '''dlg = wx.FileDialog(self, "Choose input files")
+        if dlg.ShowModal() == wx.ID_OK:
+            i = dlg.GetFilterIndex()
+            if i == 0: # Text format
+                try:
+                    f = open(dlg.GetPath(), "w")
+                    f.write("# Date, From, SerivceCenter, Message\n")
+                    for i in self.itemDataMap.keys():
+                        entry = self.itemDataMap[i]
+                        f.write('%s,%s,%s,%s\n' % (entry[1], entry[2], entry[4].smsc, entry[3]))
+                    f.close()
+                    pySIMmessage(self, "SMS export to file was successful\n\nFilename: %s" % dlg.GetPath(), "Export OK")
+                except:
+                    pySIMmessage(self, "Unable to save your SMS messages to file: %s" % dlg.GetPath(), "Export error")
+                    #print_exc()
+
+        dlg.Destroy()'''
+        with wx.FileDialog(self, "Choose input files", style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST | wx.FD_MULTIPLE) as fileDialog:
+
+            if fileDialog.ShowModal() == wx.ID_CANCEL:
+                return     # the user changed their mind
+
+            # Proceed loading the file chosen by the user
+            pathnames = fileDialog.GetPaths()
+            print(pathnames)
+            try:
+                with open(pathnames[0], 'r') as file:
+                    #self.doLoadDataOrWhatever(file)
+                    print('File load test successful')
+            except IOError:
+                wx.LogError('File load test failed')
 
     def InitUI(self):
         '''
@@ -43,17 +74,35 @@ class mainWindow(wx.Frame):
         st_input_files.SetFont(font)
         hbox_input_files.Add(st_input_files, flag=wx.RIGHT | wx.CENTER, border=8)
 
-        tc_input_files = wx.TextCtrl(panel, value='No files selected', style=wx.TE_READONLY)
+        tc_input_files = wx.TextCtrl(panel, value='No files selected') #, style=wx.TE_READONLY
         hbox_input_files.Add(tc_input_files, proportion=1)
 
         vbox.Add(hbox_input_files, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP, border=10)
 
-        hbox_change_input_files = wx.BoxSizer(wx.HORIZONTAL)
-        button_input_files = wx.Button(panel, label='Choose Input Files')
-        button_input_files.Bind(wx.EVT_BUTTON, self.changeInputFiles)
-        hbox_change_input_files.Add(button_input_files, proportion=1)
+        #hbox_input_file_help = wx.BoxSizer(wx.HORIZONTAL)
+        #st_input_file_help = wx.StaticText(panel, label='aaaaaa')
+        #st_input_file_help.SetFont(font)
+        #hbox_input_file_help.Add(st_input_file_help, flag=wx.RIGHT | wx.CENTER, border=8)
 
-        vbox.Add(hbox_change_input_files, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP, border=10)
+        #vbox.Add(hbox_input_file_help, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP, border=10)
+
+        hbox_output_files = wx.BoxSizer(wx.HORIZONTAL)
+
+        st_output_files = wx.StaticText(panel, label='Output file:')
+        st_output_files.SetFont(font)
+        hbox_output_files.Add(st_output_files, flag=wx.RIGHT | wx.CENTER, border=8)
+
+        tc_output_files = wx.TextCtrl(panel, value='No files selected') #, style=wx.TE_READONLY
+        hbox_output_files.Add(tc_output_files, proportion=1)
+
+        vbox.Add(hbox_output_files, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP, border=10)
+
+        #hbox_change_output_files = wx.BoxSizer(wx.HORIZONTAL)
+        #button_output_files = wx.Button(panel, label='Choose output Files')
+        #button_output_files.Bind(wx.EVT_BUTTON, self.changeInputFiles)
+        #hbox_change_output_files.Add(button_output_files, proportion=1)
+
+        #vbox.Add(hbox_change_output_files, flag=wx.EXPAND|wx.LEFT|wx.RIGHT|wx.TOP, border=10)
 
         #vbox.Add((-1, 10))
 
