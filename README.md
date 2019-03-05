@@ -1,7 +1,5 @@
 # Lapser
 
-### Note: Lapser does not currently work on Windows
-
 ## Setup
 
 Requirements:
@@ -12,3 +10,6 @@ Requirements:
 ```pip3 install ffmpeg-python```
 
 * FFmpeg - can be downloaded from https://www.ffmpeg.org (Note: FFmpeg must be in the system path)
+
+## Usage
+
