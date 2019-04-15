@@ -19,4 +19,4 @@
 
 4. Set file framerate. This will be the framerate of the output file in frames per second. Common values include 30 and 60.
 
-5. Generate timelapse. Once you have all the setting plugged in, just press the "Generate timelapse" button. This could take a while depending on how many images you have and their size, so be patient!
+5. Generate timelapse. Once you have all the settings plugged in, just press the "Generate Timelapse" button. This could take a while depending on how many images you have and their size, so be patient! Don't worry if the program says it's not responding, this is normal behavior.
