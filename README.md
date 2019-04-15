@@ -1,5 +1,7 @@
 # Lapser
 
+![Lapser screenshot](lapser.png)
+
 ## Requirements
 
 * Python 3.X - can be downloaded from <https://www.python.org>
