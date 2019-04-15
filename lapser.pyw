@@ -18,7 +18,10 @@ class Window(tk.Tk):
     def __init__(self):
         super(Window, self).__init__()
         self.title("Lapser")
-        self.iconbitmap("icon.ico")
+        try:
+            self.iconbitmap("icon.ico")
+        except Exception:
+            pass
         self.columnconfigure(1, weight=1)
 
         # Main Widgets
