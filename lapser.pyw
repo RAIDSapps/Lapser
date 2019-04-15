@@ -49,7 +49,7 @@ class Window(tk.Tk):
         self.output_framerate.grid(row=4, column=1, sticky="we", padx=6, pady=2)
         Hovertip(self.output_framerate, "Framerate of the output file, typically 30 or 60 if generating a video")
 
-        run = ttk.Button(self, text="Run", command=self.run)
+        run = ttk.Button(self, text="Generate Timelapse", command=self.run)
         run.grid(row=6, column=0, columnspan=2, pady=6)
 
     def run(self):
