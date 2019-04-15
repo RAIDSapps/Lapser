@@ -21,4 +21,4 @@
 
 4. Set file framerate. This will be the framerate of the output file in frames per second. Common values include 30 and 60.
 
-5. Generate timelapse. Once you have all the settings plugged in, just press the "Generate Timelapse" button. This could take a while depending on how many images you have and their size, so be patient! Don't worry if the program says it's not responding, this is normal behavior. A second window may appear with FFMPEG's output, just let it do it's thing. If the specified output file already exists, this window will ask you whether or not to overwrite it.
+5. Generate timelapse. Once you have all the settings plugged in, just press the "Generate Timelapse" button. This could take a while depending on how many images you have and their size, so be patient! Don't worry if the program says it's not responding, this is normal behavior. A second window may appear with FFMPEG's output, just let it do its thing. If the specified output file already exists, this window will ask you whether or not to overwrite it.
